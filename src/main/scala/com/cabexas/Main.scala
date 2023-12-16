@@ -14,7 +14,7 @@ object AwairExporter extends IOApp {
     httpClient.use: client =>
       client
         .expect[String]("http://172.20.30.202/air-data/latest")
-        .flatMap{d => IO.println(decode[AwairData](d))}
+        .flatMap { d => IO.println(decode[AwairData](d)) }
         .as(ExitCode.Success)
 
 }
