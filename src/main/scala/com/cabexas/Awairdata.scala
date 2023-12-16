@@ -1,7 +1,7 @@
 package com.cabexas
 
 import io.circe.Decoder
-import io.circe.generic.semiauto._
+import io.circe.Encoder
 
 final case class AwairData(
     timestamp: String,
@@ -22,6 +22,12 @@ object AwairData {
       "humid"
     ) { AwairData.apply }
   }
+  implicit val awairdataEncoder: Encoder[AwairData] = 
+    Encoder.forProduct5("timestamp",
+      "score",
+      "dew_point",
+      "temp",
+      "humid")(d => (d.timestamp, d.score, d.dewPoint, d.temperature, d.humidity))
 }
 
 // {

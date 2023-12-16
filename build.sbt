@@ -6,6 +6,7 @@ val circeVersion = "0.14.6"
 
 
 scalacOptions ++= Seq(
+  "-deprecation",                     // Emit warning and location for usages of deprecated APIs.
   "-Xfatal-warnings",                 // Fail the compilation if there are any warnings.
   "-Wunused:all"                      // Emit compilation warnings for all unused code
 )
