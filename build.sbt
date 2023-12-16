@@ -4,6 +4,11 @@ val circeVersion = "0.14.6"
 
 // Compile / run / fork := true
 
+
+scalacOptions ++= Seq(
+  "-Xfatal-warnings",                 // Fail the compilation if there are any warnings.
+  "-Wunused:all"                      // Emit compilation warnings for all unused code
+)
 lazy val root = project
   .in(file("."))
   .settings(

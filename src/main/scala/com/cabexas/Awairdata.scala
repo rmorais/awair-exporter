@@ -2,8 +2,6 @@ package com.cabexas
 
 import io.circe.Decoder
 import io.circe.generic.semiauto._
-import io.circe.derivation.Configuration
-import io.circe.Codec
 
 final case class AwairData(
     timestamp: String,
