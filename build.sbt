@@ -20,11 +20,13 @@ lazy val root = project
       "io.circe" %% "circe-core" % circeVersion,
       "io.circe" %% "circe-parser" % circeVersion,
       "io.circe" %% "circe-generic" % circeVersion,
+      "io.circe" %% "circe-testing" % circeVersion,
       "ch.qos.logback" % "logback-classic" % "1.4.9",
       "org.typelevel" %% "cats-core" % "2.10.0",
       "org.typelevel" %% "cats-effect" % "3.5.2",
       "org.http4s" %% "http4s-ember-client" % http4sVersion,
       "org.http4s" %% "http4s-dsl" % http4sVersion,
-      "org.scalameta" %% "munit" % "0.7.29" % Test
+      "org.scalameta" %% "munit" % "0.7.29" % Test,
+      "org.typelevel" %% "discipline-munit" % "2.0.0-M3" % Test
     )
   )
