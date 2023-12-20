@@ -1,10 +1,10 @@
 package com.cabexas
 
-import org.http4s.ember.client.EmberClientBuilder
+import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
-import cats.effect.ExitCode
-import io.circe.parser.decode
+import org.http4s.circe.CirceEntityDecoder._
+import org.http4s.ember.client.EmberClientBuilder
 
 object AwairExporter extends IOApp {
 
@@ -13,8 +13,7 @@ object AwairExporter extends IOApp {
   override def run(args: List[String]): IO[ExitCode] =
     httpClient.use: client =>
       client
-        .expect[String]("http://172.20.30.202/air-data/latest")
-        .flatMap { d => IO.println(decode[AwairData](d)) }
+        .expect[AwairData]("http://172.20.30.202/air-data/latest")
         .as(ExitCode.Success)
 
 }
